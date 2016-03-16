@@ -20,8 +20,7 @@ public class MyApp {
 
     public static void main(String[] args) {
         SpringApplication.run(MyApp.class, args);
-        System.out.println("Método Main");
-        
+        System.out.println("Método");
     }
 
     @Bean
@@ -54,7 +53,7 @@ public class MyApp {
                 variables.put("graducaoProfessor5", "Dippold.doe@activiti.com");
                 variables.put("horasAlocadas5", "123456789");
                 
-    runtimeService.startProcessInstanceByKey("ProcessoProfessores", variables);
+    runtimeService.startProcessInstanceByKey("professores_nde_processo", variables);
            }
        };
 

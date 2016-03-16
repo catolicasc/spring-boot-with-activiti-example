@@ -30,11 +30,20 @@ public class ProfessoresRestController {
 	public void startProfessoresProcess(@RequestBody Map<String, String> data) {
 
 		Professores professores = new Professores
-				(data.get("nomeProfessor1"), data.get("graducaoProfessor1"),
-				data.get("horasAlocadas1"), data.get("nomeProfessor2"), data.get("graducaoProfessor2"),
-				data.get("horasAlocadas2"), data.get("nomeProfessor3"), data.get("graducaoProfessor3"),
-				data.get("horasAlocadas3"), data.get("nomeProfessor4"), data.get("graducaoProfessor4"),
-				data.get("horasAlocadas4"), data.get("nomeProfessor5"), data.get("graducaoProfessor5"),
+				(
+				data.get("nomeProfessor1"), data.get("graducaoProfessor1"),
+				data.get("horasAlocadas1"),
+				
+				data.get("nomeProfessor2"), data.get("graducaoProfessor2"),
+				data.get("horasAlocadas2"),
+				
+				data.get("nomeProfessor3"), data.get("graducaoProfessor3"),
+				data.get("horasAlocadas3"),
+				
+				data.get("nomeProfessor4"), data.get("graducaoProfessor4"),
+				data.get("horasAlocadas4"),
+				
+				data.get("nomeProfessor5"), data.get("graducaoProfessor5"),
 				data.get("horasAlocadas5"));
 
 		Map<String, Object> vars = Collections.<String, Object> singletonMap("professores", professores);
