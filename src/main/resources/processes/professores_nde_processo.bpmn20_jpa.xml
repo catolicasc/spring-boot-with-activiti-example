@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/processdef" xmlns:modeler="http://activiti.com/modeler" modeler:version="1.0ev" modeler:exportDateTime="20160314192925" modeler:modelId="977437" modeler:modelVersion="2" modeler:modelLastUpdated="1457983758143">
+  <process id="professorJpa" name="professores_nde_processo" isExecutable="true">
+    <startEvent id="idinicio"/>
+    <userTask id="idenviar" name="Enviar Tarefa" activiti:candidateGroups="dev-managers">
+      <extensionElements>
+        <modeler:allow-send-email>true</modeler:allow-send-email>
+      </extensionElements>
+    </userTask>
+    <serviceTask id="idiniciar" name="Iniciar" activiti:expression="${resumeService.storeResume()}"/>
+    <endEvent id="sid-E45B5F36-FEDF-4146-97B6-82B6CDCE39D5"/>
+    <serviceTask id="idmail" activiti:type="mail">
+      <extensionElements>
+        <activiti:field name="to">
+          <activiti:string><![CDATA[allmeidajr@gmail.com]]></activiti:string>
+        </activiti:field>
+        <activiti:field name="from">
+          <activiti:string><![CDATA[luiz.almeida@catolicasc.org.br]]></activiti:string>
+        </activiti:field>
+        <activiti:field name="html">
+          <activiti:expression><![CDATA[Dear ${name}, deu boa fion]]></activiti:expression>
+        </activiti:field>
+      </extensionElements>
+    </serviceTask>
+    <sequenceFlow id="sid-DC01896E-E273-4D6E-8BDB-A9EC288A4B1A" sourceRef="idinicio" targetRef="idiniciar"/>
+    <sequenceFlow id="sid-160D76B1-F361-440D-9B26-B837D394F0B8" sourceRef="idiniciar" targetRef="idenviar"/>
+    <sequenceFlow id="sid-AA361C43-B781-44E0-885B-C86D0DC7FC21" sourceRef="idenviar" targetRef="idmail"/>
+    <sequenceFlow id="sid-0A083741-02F3-4E27-BCCC-86F673B66F60" sourceRef="idmail" targetRef="sid-E45B5F36-FEDF-4146-97B6-82B6CDCE39D5"/>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_professores_nde_processo">
+    <bpmndi:BPMNPlane bpmnElement="professores_nde_processo" id="BPMNPlane_professores_nde_processo">
+      <bpmndi:BPMNShape bpmnElement="idinicio" id="BPMNShape_idinicio">
+        <omgdc:Bounds height="30.0" width="30.0" x="100.0" y="163.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="idenviar" id="BPMNShape_idenviar">
+        <omgdc:Bounds height="80.0" width="100.0" x="330.0" y="45.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="idiniciar" id="BPMNShape_idiniciar">
+        <omgdc:Bounds height="80.0" width="100.0" x="180.0" y="139.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-E45B5F36-FEDF-4146-97B6-82B6CDCE39D5" id="BPMNShape_sid-E45B5F36-FEDF-4146-97B6-82B6CDCE39D5">
+        <omgdc:Bounds height="28.0" width="28.0" x="635.25" y="159.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="idmail" id="BPMNShape_idmail">
+        <omgdc:Bounds height="80.0" width="100.0" x="495.0" y="45.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sid-160D76B1-F361-440D-9B26-B837D394F0B8" id="BPMNEdge_sid-160D76B1-F361-440D-9B26-B837D394F0B8">
+        <omgdi:waypoint x="280.0" y="179.0"/>
+        <omgdi:waypoint x="380.0" y="179.0"/>
+        <omgdi:waypoint x="380.0" y="125.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-AA361C43-B781-44E0-885B-C86D0DC7FC21" id="BPMNEdge_sid-AA361C43-B781-44E0-885B-C86D0DC7FC21">
+        <omgdi:waypoint x="430.0" y="85.0"/>
+        <omgdi:waypoint x="495.0" y="85.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-0A083741-02F3-4E27-BCCC-86F673B66F60" id="BPMNEdge_sid-0A083741-02F3-4E27-BCCC-86F673B66F60">
+        <omgdi:waypoint x="592.3863636363636" y="125.0"/>
+        <omgdi:waypoint x="638.5518951945893" y="163.9694654879986"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-DC01896E-E273-4D6E-8BDB-A9EC288A4B1A" id="BPMNEdge_sid-DC01896E-E273-4D6E-8BDB-A9EC288A4B1A">
+        <omgdi:waypoint x="129.9994329244086" y="178.1304298515166"/>
+        <omgdi:waypoint x="180.0" y="178.56521739130434"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
